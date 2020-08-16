@@ -16,3 +16,6 @@
 
 # Executable
 twilio-weather-service
+
+#environment file
+.env
