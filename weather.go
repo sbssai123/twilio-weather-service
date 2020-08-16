@@ -16,6 +16,7 @@ func getTodaysForecast(cityName string) {
 	q := req.URL.Query()
 	q.Add("q", cityName)
 	q.Add("appid", "<API_KEY>")
+	q.Add("units", "imperial")
 	req.URL.RawQuery = q.Encode()
 	req.Close = true
 
