@@ -5,6 +5,7 @@ import (
 	"errors"
 	"io/ioutil"
 	"net/http"
+	"os"
 )
 
 const (
@@ -32,7 +33,7 @@ func getTodaysForecast(cityName string) (WeatherData, error) {
 	req, err := http.NewRequest("GET", BASE_API_URL, nil)
 	q := req.URL.Query()
 	q.Add("q", cityName)
-	q.Add("appid", "973a83b25899377e24c6d563fcb84ad2")
+	q.Add("appid", os.Getenv("OPEN_WEATHER_API_KEY"))
 	q.Add("units", "imperial")
 	req.URL.RawQuery = q.Encode()
 	req.Close = true
